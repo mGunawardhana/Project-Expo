@@ -30,3 +30,22 @@ export const InnerContainer = styled.View`
   flex: 1;
   align-items: center;
 `;
+
+export const PageLogo = styled.Image`
+  width: 250px;
+  height: 200px;
+`;
+
+export const PageTitle = styled.Text`
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+  color: ${Colors.brand};
+  padding: 10px;
+
+  ${(props) =>
+    props.welcome &&
+    `
+    font-size: 35px;
+  `}
+`;
