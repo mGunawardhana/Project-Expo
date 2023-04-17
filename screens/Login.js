@@ -4,9 +4,24 @@ import { View } from 'react-native';
 
 import {
     StyledContainer,
-    InnerContainer,
-    PageLogo, PageTitle, SubTitle, StyledFormArea
-    ,LeftIcon,StyledInputLabel,StyledTextInput,RightIcon,Colors
+  PageLogo,
+  PageTitle,
+  SubTitle,
+  StyledInputLabel,
+  StyledFormArea,
+  StyledButton,
+  StyledTextInput,
+  LeftIcon,
+  RightIcon,
+  InnerContainer,
+  ButtonText,
+  MsgBox,
+  Line,
+  ExtraView,
+  ExtraText,
+  TextLink,
+  TextLinkContent,
+  Colors,
 } from '../components/styles';
 
 //icons
@@ -73,7 +88,7 @@ const Login = () => {
     );
 };
 
-const MyTextInput = ({label, icon, ...props}) => {
+const MyTextInput = ({label, icon, isPassword, hidePassword, setHidePassword, ...props}) => {
     return (<View style={{}}>
         <LeftIcon>
             <Octicons name={ icon} size={30} color={brand}/>
@@ -83,10 +98,14 @@ const MyTextInput = ({label, icon, ...props}) => {
         </StyledInputLabel>
         <StyledTextInput {...props} />
         {isPassword && (
-            <RightIcon onPress={()=>setHidePassword(!hidePassword)}>
-                <Ionicons name={hidePassword ? "md-eye-off" : "md-eye"} size={30} color={darkLight}/>
-            </RightIcon>
-        )}
+        <RightIcon
+          onPress={() => {
+            setHidePassword(!hidePassword);
+          }}
+        >
+          <Ionicons name={hidePassword ? 'md-eye-off' : 'md-eye'} size={30} color={darkLight} />
+        </RightIcon>
+      )}
     </View>)
 }
 //19.29

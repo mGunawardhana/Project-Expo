@@ -110,7 +110,7 @@ export const StyledButton = styled.TouchableOpacity`
   background-color: ${brand};
   justify-content: center;
   align-items: center;
-  border-radius: 5px;
+  border-radius: 30px;
   margin-vertical: 5px;
   height: 60px;
 
