@@ -31,12 +31,10 @@ export const InnerContainer = styled.View`
   align-items: center;
 `;
 
-
 export const PageLogo = styled.Image`
   /* width: 250px;
   height: 200px; */
   margin-top: 30px;
-
 `;
 
 export const PageTitle = styled.Text`
@@ -70,7 +68,6 @@ export const SubTitle = styled.Text`
 `;
 
 //******************************************* */
-
 
 export const StyledTextInput = styled.TextInput`
   background-color: ${secondary};
@@ -110,7 +107,7 @@ export const StyledButton = styled.TouchableOpacity`
   background-color: ${brand};
   justify-content: center;
   align-items: center;
-  border-radius: 30px;
+  border-radius: 25px;
   margin-vertical: 5px;
   height: 60px;
 
@@ -138,7 +135,7 @@ export const ButtonText = styled.Text`
 export const MsgBox = styled.Text`
   text-align: center;
   font-size: 13px;
-  color: ${props => props.type == "SUCCESS" ? green : red};
+  color: ${(props) => (props.type == 'SUCCESS' ? green : red)};
 `;
 
 export const Line = styled.View`
