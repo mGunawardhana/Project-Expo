@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Formik as Formic } from 'formik';
-import { View } from 'react-native';
+import { View , TouchableOpacity} from 'react-native';
 
 import {
   StyledContainer,
@@ -33,6 +33,9 @@ const { darkLight, brand, primary } = Colors;
 // keyboard avoiding view
 // import KeyboardAvoidingWrapper from './../components/KeyboardAvoidingWrapper';
 
+import DateTimePicker from '@react-native-community/datetimepicker';
+
+
 const Signup = () => {
   const [hidePassword, setHidePassword] = useState(true);
   const [show, setShow] = useState(false);
@@ -49,6 +52,13 @@ const Signup = () => {
     setDate(currentDate);
     setDob(currentDate);
   };
+
+  const showDatePicker = () => {
+    setShow('date');
+  };
+
+  // credentials context
+//   const { storedCredentials, setStoredCredentials } = useContext(CredentialsContext);
 
   return (
     <StyledContainer>
@@ -96,15 +106,17 @@ const Signup = () => {
                 value={values.email}
                 keyboardType="email-address"
               />
-
               <MyTextInput
                 label="Date of Birth"
-                icon="calendar"
                 placeholder="YYYY - MM - DD"
                 placeholderTextColor={darkLight}
                 onChangeText={handleChange('dateOfBirth')}
                 onBlur={handleBlur('dateOfBirth')}
-                value={values.dateOfBirth}
+                value={dob ? dob.toDateString() : ''}
+                icon="calendar"
+                editable={false}
+                isDate={true}
+                showDatePicker={showDatePicker}
               />
 
               <MyTextInput
@@ -157,14 +169,19 @@ const Signup = () => {
   );
 };
 
-const MyTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, ...props }) => {
+const MyTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, isDate, showDatePicker, ...props }) => {
   return (
     <View style={{}}>
       <LeftIcon>
         <Octicons name={icon} size={30} color={brand} />
       </LeftIcon>
       <StyledInputLabel>{label}</StyledInputLabel>
-      <StyledTextInput {...props} />
+      {isDate && (
+        <TouchableOpacity onPress={showDatePicker}>
+          <StyledTextInput {...props} />
+        </TouchableOpacity>
+      )}
+      {!isDate && <StyledTextInput {...props} />}
       {isPassword && (
         <RightIcon
           onPress={() => {
