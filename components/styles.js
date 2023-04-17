@@ -24,3 +24,9 @@ export const StyledContainer = styled.View`
   padding-top: ${StatusBarHeight + 30}px;
   background-color: ${Colors.primary};
 `;
+
+export const InnerContainer = styled.View`
+  width: 100%;
+  flex: 1;
+  align-items: center;
+`;
