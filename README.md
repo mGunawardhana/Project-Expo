@@ -1,4 +1,4 @@
 # Project-Expo
 this try is to learning expo
 
-![Screenshot from 2023-04-17 17-51-54](https://user-images.githubusercontent.com/100486080/232482600-5907fcd9-51e1-4512-8612-f5d0a0bd5fe9.png)
+![Screenshot from 2023-04-17 18-51-05](https://user-images.githubusercontent.com/100486080/232496423-75a0d58d-54c7-49af-b9f0-db9761fd0936.png)
