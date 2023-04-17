@@ -34,6 +34,8 @@ export const InnerContainer = styled.View`
 export const PageLogo = styled.Image`
   width: 250px;
   height: 200px;
+  margin-top: 30px;
+
 `;
 
 export const PageTitle = styled.Text`
