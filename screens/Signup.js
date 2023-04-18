@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Formik as Formic } from 'formik';
-import { View , TouchableOpacity} from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 
 import {
   StyledContainer,
@@ -35,7 +35,6 @@ const { darkLight, brand, primary } = Colors;
 
 import DateTimePicker from '@react-native-community/datetimepicker';
 
-
 const Signup = () => {
   const [hidePassword, setHidePassword] = useState(true);
   const [show, setShow] = useState(false);
@@ -58,7 +57,7 @@ const Signup = () => {
   };
 
   // credentials context
-//   const { storedCredentials, setStoredCredentials } = useContext(CredentialsContext);
+  // const { storedCredentials, setStoredCredentials } = useContext(CredentialsContext);
 
   return (
     <StyledContainer>
@@ -85,7 +84,7 @@ const Signup = () => {
             console.log(values);
           }}
         >
-          {({ handleChange, handleBlur, handleSubmit, values }) => (
+          {({ handleChange, handleBlur, handleSubmit, values, isSubmitting }) => (
             <StyledFormArea>
               <MyTextInput
                 label="Full Name"
@@ -148,9 +147,19 @@ const Signup = () => {
 
               <MsgBox>...</MsgBox>
 
+              {!isSubmitting && (
+                <StyledButton onPress={handleSubmit}>
+                  <ButtonText>Signup</ButtonText>
+                </StyledButton>
+              )}
+              {isSubmitting && (
+                <StyledButton disabled={true}>
+                  <ActivityIndicator size="large" color={primary} />
+                </StyledButton>
+              )}
               <Line />
 
-              <StyledButton google={true} onPress={handleSubmit}>
+              {/* <StyledButton google={true} onPress={handleSubmit}>
                 <Fontisto name="google" color={primary} size={25} />
                 <ButtonText google={true}>Sign in with Google</ButtonText>
               </StyledButton>
@@ -158,6 +167,12 @@ const Signup = () => {
               <ExtraView>
                 <ExtraText>Already have an account?</ExtraText>
                 <TextLink>
+                  <TextLinkContent>Login</TextLinkContent>
+                </TextLink>
+              </ExtraView> */}
+              <ExtraView>
+                <ExtraText>Already have an account? </ExtraText>
+                <TextLink onPress={() => navigation.navigate('Login')}>
                   <TextLinkContent>Login</TextLinkContent>
                 </TextLink>
               </ExtraView>

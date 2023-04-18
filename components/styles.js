@@ -10,7 +10,7 @@ export const Colors = {
   secondary: '#E5E7EB',
   tertiary: '#1F2937',
   darkLight: '#9CA3AF',
-  brand: '#535c68',
+  brand: '#ffa502',
   green: '#218c74',
   red: '#EF4444',
 };
@@ -66,6 +66,42 @@ export const SubTitle = styled.Text`
     font-weight: normal;
   `}
 `;
+
+export const WelcomeContainer = styled(InnerContainer)`
+  padding: 25px;
+  padding-top: 10px;
+  justify-content: center;
+`;
+
+export const Avatar = styled.Image`
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  border-radius: 50px;
+  border-width: 2px;
+  border-color: ${secondary};
+  margin-bottom: 10px;
+  margin-top: 10px;
+`;
+
+export const WelcomeImage = styled.Image`
+  height: 55%;
+  min-width: 80%;
+`;
+
+// export const PageTitle = styled.Text`
+//   font-size: 30px;
+//   text-align: center;
+//   font-weight: bold;
+//   color: ${Colors.brand};
+//   padding: 10px;
+
+//   ${(props) =>
+//     props.welcome &&
+//     `
+//     font-size: 35px;
+//   `}
+// `;
 
 //******************************************* */
 
